@@ -1,5 +1,3 @@
-import { Children, ReactNode } from "react";
-
 interface TextProps {
   variant: "title" | "subTitle" | "description" | "date";
   pointText?: string;
@@ -14,11 +12,11 @@ const textType = {
   date: "text-xs text-gray-400",
 };
 
-const Text = ({ variant, basicText, pointText, className }: TextProps) => {
+const Text = ({ variant, basicText, pointText, className = "" }: TextProps) => {
   return (
     <div className={`${textType[variant]} ${className}`}>
       <span>{basicText} </span>
-      <span className="text-blue-600">{pointText}</span>
+      {pointText && <span className="text-blue-600">{pointText}</span>}
     </div>
   );
 };

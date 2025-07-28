@@ -1,11 +1,12 @@
-"use client";
-
 import Text from "@/src/shared/ui/Text";
 import { CompleteItemProps } from "@/src/types/list-type";
 import { X } from "lucide-react";
-import { useState } from "react";
 
-const CompleteItem = ({ completedItem, handleDelete }: CompleteItemProps) => {
+const CompleteItem = ({
+  completedItem,
+  handleDelete,
+  registrationDate,
+}: CompleteItemProps) => {
   return (
     <li className="w-full flex justify-between items-center border-b border-b-gray-200 pb-2">
       <div>
@@ -14,7 +15,10 @@ const CompleteItem = ({ completedItem, handleDelete }: CompleteItemProps) => {
           basicText={completedItem}
           variant="description"
         />
-        <Text basicText="2025.07.27" variant="date" />
+        <Text
+          basicText={registrationDate.toLocaleDateString()}
+          variant="date"
+        />
       </div>
       <button
         onClick={handleDelete}

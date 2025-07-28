@@ -2,11 +2,12 @@
 
 import { ChangeEvent, FormEvent, useState } from "react";
 
-import AddTodo from "./widget/addTodo/AddTodo";
+import AddTodo from "./components/addTodo/AddTodo";
 
-import Header from "./widget/Header";
-import TodoList from "./widget/todoList/TodoList";
-import CompleteList from "./widget/completeList/CompleteList";
+import Header from "./components/Header";
+import TodoList from "./components/todoList/TodoList";
+import CompleteList from "./components/completeList/CompleteList";
+import LifeQuotes from "./components/LifeQuotes";
 
 interface SectionProps {
   className: string;
@@ -15,6 +16,8 @@ interface SectionProps {
 const TodoSection = ({ className }: SectionProps) => {
   const [todo, setTodo] = useState<string>("");
   const [todos, setTodos] = useState<string[]>([]);
+
+  const [regDate, setRegDate] = useState<Date>(new Date());
 
   const [completedTodos, setCompletedTodos] = useState<string[]>([]);
 
@@ -30,6 +33,7 @@ const TodoSection = ({ className }: SectionProps) => {
     e.preventDefault();
     if (!todo.trim()) return;
     setTodos((prevTodos) => [...prevTodos, todo]);
+    setRegDate((prevDate) => new Date());
     setIsChecked((prevChecked) => [...prevChecked, false]);
     setTodo("");
   };
@@ -60,20 +64,17 @@ const TodoSection = ({ className }: SectionProps) => {
             todos={todos}
             isChecked={isChecked}
             handleCheck={handleCheck}
+            registrationDate={regDate}
           ></TodoList>
           <CompleteList
             handleDelete={handleDelete}
             title={"Complete List"}
             height={"mainCard"}
             completedTodos={completedTodos}
+            registrationDate={regDate}
           ></CompleteList>
         </div>
-        {/* <ListCard
-          title={"Life Quotes"}
-          height={"etcCard"}
-          isChecked={isChecked}
-          handleCheck={handleCheck}
-        ></ListCard> */}
+        <LifeQuotes></LifeQuotes>
       </div>
     </div>
   );

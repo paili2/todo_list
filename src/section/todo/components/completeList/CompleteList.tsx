@@ -9,6 +9,7 @@ const CompleteList = ({
   height,
   completedTodos,
   handleDelete,
+  registrationDate,
 }: CompleteListProps) => {
   const cardType = { mainCard: "h-[350px]", etcCard: "h-[150px]" };
 
@@ -23,6 +24,7 @@ const CompleteList = ({
             key={i}
             completedItem={completedTodos[i]}
             handleDelete={() => handleDelete(i)}
+            registrationDate={registrationDate}
           ></CompleteItem>
         ))}
       </ul>
