@@ -1,5 +1,5 @@
+import { ListTitleProps } from "@/src/types/list-type";
 import Text from "@/src/shared/ui/Text";
-import { ListTitleProps } from "../types/type";
 
 const ListTitle = ({ title }: ListTitleProps) => {
   return (

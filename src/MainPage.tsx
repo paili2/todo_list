@@ -1,5 +1,5 @@
-import TodoSection from "./TodoSection";
-import WidgetSection from "./WidgetSection";
+import TodoSection from "./section/todo/TodoSection";
+import WidgetSection from "./section/widget/WidgetSection";
 
 const MainPage = () => {
   return (
