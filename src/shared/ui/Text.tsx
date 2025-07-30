@@ -1,7 +1,7 @@
 interface TextProps {
   variant: "title" | "subTitle" | "description" | "date";
   pointText?: string;
-  basicText: string;
+  basicText?: string;
   className?: string;
 }
 
