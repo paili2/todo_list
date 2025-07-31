@@ -6,7 +6,6 @@ import TodoItem from "./components/TodoItem";
 
 const TodoList = ({
   title,
-  height,
   todos,
   isChecked,
   handleCheck,
@@ -20,10 +19,10 @@ const TodoList = ({
       <ul className="w-full py-3 flex flex-col gap-3 pt-5">
         {todos.map((v, i) => (
           <TodoItem
-            key={i}
-            todo={v}
+            key={v.id}
+            todoItem={v}
             isChecked={isChecked[i] ?? false}
-            handleCheck={() => handleCheck(i)}
+            handleCheck={() => handleCheck(v.id)}
             registrationDate={registrationDate}
           ></TodoItem>
         ))}

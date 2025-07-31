@@ -1,5 +1,7 @@
 import { SectionProps } from "../../types/type";
 import CalenderCard from "./components/CalenderCard";
+import VideoCard from "./components/VideoCard";
+
 import WeatherCard from "./components/WeatherCard";
 
 const WidgetSection = ({ className }: SectionProps) => {
@@ -9,6 +11,7 @@ const WidgetSection = ({ className }: SectionProps) => {
     >
       <CalenderCard></CalenderCard>
       <WeatherCard></WeatherCard>
+      <VideoCard></VideoCard>
     </div>
   );
 };

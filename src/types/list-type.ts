@@ -7,27 +7,38 @@ export interface ListCardProps extends ListTitleProps {
 }
 
 export interface TodoItemProps {
-  todo: string;
+  todoItem: Todo;
   isChecked: boolean;
   registrationDate: Date;
   handleCheck: () => void;
 }
 
+export interface SectionProps {
+  className: string;
+}
+
+export interface Todo {
+  id: number;
+  title: string;
+  completed: boolean; // ✅ 추가
+  createdAt?: string;
+  updatedAt?: string;
+}
 export interface TodoListProps extends ListCardProps {
-  todos: string[];
+  todos: Todo[];
   isChecked: boolean[];
   registrationDate: Date;
   handleCheck: (index: number) => void;
 }
 
 export interface CompleteItemProps {
-  completedItem: string;
+  completedItem: Todo;
   registrationDate: Date;
   handleDelete: () => void;
 }
 
 export interface CompleteListProps extends ListCardProps {
-  completedTodos: string[];
+  completedTodos: Todo[];
   registrationDate: Date;
   handleDelete: (index: number) => void;
 }

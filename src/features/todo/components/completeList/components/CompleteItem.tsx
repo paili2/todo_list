@@ -12,7 +12,7 @@ const CompleteItem = ({
       <div>
         <Text
           className="line-through text-gray-400"
-          basicText={completedItem}
+          basicText={completedItem.title}
           variant="description"
         />
         <Text

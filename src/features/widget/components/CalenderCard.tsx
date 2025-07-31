@@ -13,6 +13,20 @@ const CalenderCard = () => {
   }, []);
 
   const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  const months = [
+    "JAN",
+    "FEB",
+    "MAR",
+    "APR",
+    "MAY",
+    "JUN",
+    "JUL",
+    "AUG",
+    "SEP",
+    "OCT",
+    "NOV",
+    "DEC",
+  ];
   const pad = (n: number) => String(n).padStart(2, "0");
 
   return (
@@ -21,9 +35,9 @@ const CalenderCard = () => {
         <>
           <Text
             variant="date"
-            basicText={`${days[now.getDay()]} ${pad(
-              now.getDate()
-            )}, ${now.getFullYear()}`}
+            basicText={`${days[now.getDay()]}  ${pad(now.getDate())} ${
+              months[now.getMonth()]
+            }, ${now.getFullYear()}`}
           />
           <Text
             variant="title"

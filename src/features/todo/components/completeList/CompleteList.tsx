@@ -23,7 +23,7 @@ const CompleteList = ({
           <CompleteItem
             key={i}
             completedItem={completedTodos[i]}
-            handleDelete={() => handleDelete(i)}
+            handleDelete={() => handleDelete(v.id)}
             registrationDate={registrationDate}
           ></CompleteItem>
         ))}

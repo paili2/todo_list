@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 import LoginForm from "./LoginForm";
 import AuthLinkText from "@/src/shared/ui/AuthLinkText";
 import AuthLink from "@/src/shared/ui/AuthLink";
+import axios from "axios";
 
 const LoginPage = () => {
   const router = useRouter();
@@ -17,6 +18,22 @@ const LoginPage = () => {
   });
 
   const login = async () => {
+    try {
+      const response = await axios.post(
+        `${process.env.NEXT_PUBLIC_API_URL}/auth/login`,
+        form
+      );
+      console.log("로그인 성공");
+      const { access_token } = response.data;
+      // ✅ access_token 저장 (localStorage)
+      if (access_token) {
+        localStorage.setItem("token", access_token);
+      }
+      router.push("/main");
+    } catch (error) {
+      console.log("로그인 실패", error);
+      alert("로그인 실패! 다시 시도해주세요");
+    }
     console.log("로그인 요청 데이터:", form);
   };
 

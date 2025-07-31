@@ -7,6 +7,8 @@ import { useRouter } from "next/navigation";
 import { useForm } from "@/src/shared/hooks/useForm";
 import SignUpForm from "./SignUpForm";
 import AuthLinkText from "@/src/shared/ui/AuthLinkText";
+import axios from "axios";
+import { error } from "console";
 
 const SignUpPage = () => {
   const { form, handleChange } = useForm({
@@ -18,8 +20,18 @@ const SignUpPage = () => {
   const router = useRouter();
 
   const signup = async () => {
-    console.log("폼 데이터:", form);
-    // axios.post("/api/users", form);
+    try {
+      console.log("폼 데이터:", form);
+      const response = await axios.post(
+        `${process.env.NEXT_PUBLIC_API_URL}/auth/signup`,
+        form
+      );
+      console.log("회원가입 성공:", response);
+      alert("회원가입 완료!");
+    } catch (error) {
+      console.error("회원가입 실패:", error);
+      alert("회원가입 실패! 다시 시도해주세요");
+    }
   };
 
   return (
